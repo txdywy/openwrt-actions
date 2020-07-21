@@ -5,7 +5,7 @@
 # Author: P3TERX
 # Blog: https://p3terx.com
 #=================================================
-name: X64-1907
+name: X64-1907-fast
 
 on:
 #  schedule:
