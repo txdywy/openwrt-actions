@@ -5,14 +5,14 @@
 # Author: P3TERX
 # Blog: https://p3terx.com
 #=================================================
-name: X64-1907-fast
+name: bcm
 
-#on:
+on:
 #  schedule:
 #    - cron: 0 20 * * *
-#   push:
-#     branches: 
-#       - master
+   push:
+     branches: 
+       - master
 
 jobs:
   build:
@@ -39,7 +39,7 @@ jobs:
       
     - name: Clone Config
       env: 
-        REPO_URL: https://github.com/Lienol/openwrt-actions
+        REPO_URL: https://github.com/txdywy/openwrt-actions
       run: git clone --depth 1 $REPO_URL openwrt-config
       
     - name: Update feeds
@@ -52,7 +52,7 @@ jobs:
       run: |
           cd openwrt
           rm -f .config
-          cp ../openwrt-config/x64-1907 .config
+          cp ../openwrt-config/bcm_config .config
           
     - name: Make Defconfig
       run: |
@@ -70,8 +70,7 @@ jobs:
       run: |
           cd openwrt
           echo -e "$(nproc) thread build."
-          #make -j$(nproc) V=s
-          make package/feeds/lienol/luci-app-passwall/compile V=99 -j8
+          make -j$(nproc) V=s
 
     - name: Single-thread compile
       if: failure()
