@@ -49,11 +49,8 @@ jobs:
       run: cd openwrt && ./scripts/feeds install -a
     
     - name: Custom configure file
-      run: |
-          cd openwrt
-          rm -f .config
-          cp ../openwrt-config/bcm_config .config
-          
+      envn: |
+          SSH_ACTIONS: true          
     - name: Make Defconfig
       run: |
           cd openwrt
