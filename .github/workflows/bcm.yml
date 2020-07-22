@@ -49,7 +49,7 @@ jobs:
       run: cd openwrt && ./scripts/feeds install -a
     
     - name: Custom configure file
-      envn: 
+      env: 
           SSH_ACTIONS: true          
       run: cd openwrt
     - name: Make Defconfig
