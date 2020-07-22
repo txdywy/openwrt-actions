@@ -49,8 +49,9 @@ jobs:
       run: cd openwrt && ./scripts/feeds install -a
     
     - name: Custom configure file
-      envn: |
+      envn: 
           SSH_ACTIONS: true          
+      run: cd openwrt
     - name: Make Defconfig
       run: |
           cd openwrt
