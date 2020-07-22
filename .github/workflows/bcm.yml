@@ -13,7 +13,8 @@ on:
    push:
      branches: 
        - master
-
+env:
+   SSH_ACTIONS: true
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -48,10 +49,9 @@ jobs:
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
     
-    - name: Custom configure file
-      env: 
-          SSH_ACTIONS: true          
+    - name: SSH connection to Actions
       uses: P3TERX/debugger-action@master
+      if: env.SSH_ACTIONS == 'true' || contains(github.event.action, 'ssh')
     - name: Make Defconfig
       run: |
           cd openwrt
