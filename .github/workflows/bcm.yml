@@ -85,7 +85,7 @@ jobs:
           find openwrt/bin/packages/brcm2708/lienol/ -name "*ipk*" | xargs -i mv -f {} ./artifact/
        
     - name: Upload artifact
-      uses: actions/upload-artifact@master
+      uses: actions/upload-artifact@main
       with:
         name: OpenWrt firmware
         path: ./artifact/
