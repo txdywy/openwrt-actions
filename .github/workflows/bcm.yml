@@ -82,7 +82,7 @@ jobs:
           mkdir -p ./artifact/
           find openwrt/bin/targets/brcm2708/bcm2710/ -name "*" | xargs -i mv -f {} ./artifact/
           find openwrt/bin/targets/brcm2708/bcm2710/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
-          find openwrt/bin/packages/brcm2708/lienol/ -name "*ipk*" | xargs -i mv -f {} ./artifact/
+          find openwrt/bin/packages/aarch64_cortex-a53/lienol/ -name "*ipk*" | xargs -i mv -f {} ./artifact/
           cd openwrt/bin/targets/brcm2708/bcm2710/
           ls
        
