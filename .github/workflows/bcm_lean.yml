@@ -80,9 +80,9 @@ jobs:
       run: |
           rm -rf ./artifact/
           mkdir -p ./artifact/
-          find openwrt/bin/targets/ -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
-          find openwrt/bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
-          find openwrt/bin/packages/x86_64/base/ -name "*ipk*" | xargs -i mv -f {} ./artifact/
+          find openwrt/bin/targets/brcm2708/bcm2710/ -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
+          find openwrt/bin/targets/brcm2708/bcm2710/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
+          find openwrt/bin/packages/brcm2708/base/ -name "*ipk*" | xargs -i mv -f {} ./artifact/
        
     - name: Upload artifact
       uses: actions/upload-artifact@master
