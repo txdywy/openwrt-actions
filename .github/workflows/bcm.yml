@@ -75,17 +75,6 @@ jobs:
       run: |
           cd openwrt
           make -j1 V=s
-          
-
-    - name: Assemble artifact
-      run: |
-          rm -rf ./artifact/
-          mkdir -p ./artifact/
-          find openwrt/bin/targets/brcm2708/bcm2710/ -name "*" | xargs -i mv -f {} ./artifact/
-          find openwrt/bin/targets/brcm2708/bcm2710/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
-          find openwrt/bin/packages/aarch64_cortex-a53/lienol/ -name "*ipk*" | xargs -i mv -f {} ./artifact/
-          cp /home/runner/work/openwrt-actions/openwrt-actions/openwrt/bin/targets/brcm2708/bcm2710/openwrt-brcm2708-bcm2710-rpi-3-ext4-sysupgrade.img.gz ./artifact/.
-          cp -R /home/runner/work/openwrt-actions/openwrt-actions/openwrt/* ./artifact/.
 
        
     - name: Upload artifact
